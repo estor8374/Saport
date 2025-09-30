@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to achieving glowing skin naturally. Learn skincare routines, diet tips, lifestyle changes, and solutions for common skin problems.">
+    <meta name="keywords" content="glowing skin, skincare routine, natural glow, skin problems, healthy skin, skin care tips">
+    <title>Complete Guide to Glowing Skin: Steps, Problems & Solutions | SkinGlowGuide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ffb6c1;
+            --secondary: #ffd7e0;
+            --accent: #d4a5a5;
+            --dark: #333;
+            --light: #f9f9f9;
+            --text: #444;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Improved Sliding Navigation */
+        .category-nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+            scrollbar-width: none;  /* Hide scrollbar for Firefox */
+            padding: 0.5rem 0;
+            gap: 0.5rem;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 0.8rem 1rem;
+            background: var(--light);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            transition: var(--transition);
+        }
+        
+        .nav-item span {
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover i, .nav-item.active i {
+            transform: scale(1.2);
+        }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+            border: none;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .nav-arrow:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .nav-arrow.left {
+            left: 10px;
+        }
+        
+        .nav-arrow.right {
+            right: 10px;
+        }
+        
+        .nav-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Progress Indicator */
+        .nav-progress {
+            height: 3px;
+            background: var(--secondary);
+            width: 100%;
+            position: relative;
+        }
+        
+        .nav-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            scroll-margin-top: 100px;
+        }
+        
+        h2 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--accent);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-box {
+            background-color: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .problem-card {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .problem-card h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 3rem;
+            border-radius: 10px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background: #555;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-link {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-arrow {
+                display: none;
+            }
+            
+            .nav-item {
+                min-width: 110px;
+                padding: 0.7rem 0.8rem;
+            }
+            
+            .nav-item span {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Complete Guide to Achieving Glowing Skin</h1>
+            <p class="subtitle">Your ultimate resource for radiant, healthy skin. Learn step-by-step routines, identify problems, and discover effective solutions for your skin type.</p>
+        </div>
+    </header>
+    
+    <nav class="category-nav">
+        <div class="nav-progress">
+            <div class="nav-progress-bar" id="navProgress"></div>
+        </div>
+        <div class="container nav-container">
+            <button class="nav-arrow left" id="navArrowLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="nav-scroll" id="navScroll">
+                <a href="#understanding" class="nav-item active" data-section="understanding">
+                    <i class="fas fa-star"></i>
+                    <span>The Glow</span>
+                </a>
+                <a href="#foundations" class="nav-item" data-section="foundations">
+                    <i class="fas fa-pagelines"></i>
+                    <span>Foundations</span>
+                </a>
+                <a href="#routine" class="nav-item" data-section="routine">
+                    <i class="fas fa-list-ol"></i>
+                    <span>Daily Routine</span>
+                </a>
+                <a href="#cleansing" class="nav-item" data-section="cleansing">
+                    <i class="fas fa-pump-soap"></i>
+                    <span>Cleansing</span>
+                </a>
+                <a href="#exfoliating" class="nav-item" data-section="exfoliating">
+                    <i class="fas fa-spa"></i>
+                    <span>Exfoliating</span>
+                </a>
+                <a href="#moisturizing" class="nav-item" data-section="moisturizing">
+                    <i class="fas fa-tint"></i>
+                    <span>Moisturizing</span>
+                </a>
+                <a href="#problems" class="nav-item" data-section="problems">
+                    <i class="fas fa-diagnoses"></i>
+                    <span>Skin Problems</span>
+                </a>
+                <a href="#boosters" class="nav-item" data-section="boosters">
+                    <i class="fas fa-rocket"></i>
+                    <span>Glow Boosters</span>
+                </a>
+                <a href="#tools" class="nav-item" data-section="tools">
+                    <i class="fas fa-tools"></i>
+                    <span>Tools & Tech</span>
+                </a>
+                <a href="#faq" class="nav-item" data-section="faq">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </div>
+            
+            <button class="nav-arrow right" id="navArrowRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="understanding">
+            <h2>Understanding The "Glow"</h2>
+            <p>What exactly is "glowy" skin? It's not about covering up with makeup, but about nurturing your skin to be its healthiest, most radiant self. Truly glowing skin has these characteristics:</p>
+            <ul>
+                <li><strong>Smooth:</strong> Even texture with minimal bumps or roughness</li>
+                <li><strong>Plump:</strong> Well-hydrated and dewy, not dull or flaky</li>
+                <li><strong>Even-Toned:</strong> Lacks major discoloration, dark spots, or redness</li>
+                <li><strong>Luminous:</strong> Has a natural sheen that reflects light beautifully</li>
+            </ul>
+            <p>This coveted glow comes from healthy skin cells and a well-functioning skin barrier. It's a sign that your skin is properly hydrated, protected, and functioning at its best.</p>
+        </section>
+        
+        <section id="foundations">
+            <h2>The Foundational Pillars (Non-Negotiables)</h2>
+            <p>You can invest in the best skincare products available, but without these foundational elements, you'll struggle to achieve lasting results.</p>
+            
+            <div class="step-box">
+                <h3>Nutrition: You Are What You Eat</h3>
+                <p>Your skin reflects your internal health more than any other organ. Feed it well:</p>
+                <ul>
+                    <li><strong>Hydrate Constantly:</strong> Water flushes toxins and plumps skin cells. Aim for 2-3 liters daily.</li>
+                    <li><strong>Embrace Healthy Fats:</strong> Omega-3 and Omega-6 fatty acids strengthen your skin's lipid barrier.</li>
+                    <li><strong>Load Up on Antioxidants:</strong> Fight free radicals with Vitamin C, Vitamin E, and Beta-Carotene.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="routine">
+            <h2>The Complete Skincare Routine</h2>
+            <p>Consistency is everything in skincare. Follow this order both morning and night for optimal results.</p>
+            
+            <h3>Morning Routine</h3>
+            <ol>
+                <li><strong>Cleanse:</strong> Gentle cleanser to remove overnight impurities</li>
+                <li><strong>Tone:</strong> Balance pH and prep skin for products</li>
+                <li><strong>Serum:</strong> Target specific concerns like brightening or hydration</li>
+                <li><strong>Moisturize:</strong> Lock in hydration with a lightweight formula</li>
+                <li><strong>Protect:</strong> SPF 30+ to shield from UV damage</li>
+            </ol>
+            
+            <h3>Evening Routine</h3>
+            <ol>
+                <li><strong>First Cleanse:</strong> Oil-based cleanser to remove makeup and sunscreen</li>
+                <li><strong>Second Cleanse:</strong> Water-based cleanser to deep clean pores</li>
+                <li><strong>Exfoliate (2-3x/week):</strong> Chemical exfoliants to remove dead skin cells</li>
+                <li><strong>Tone:</strong> Rebalance and hydrate</li>
+                <li><strong>Treatment:</strong> Serums with active ingredients like retinol or vitamin C</li>
+                <li><strong>Moisturize:</strong> Richer formula to support overnight repair</li>
+            </ol>
+        </section>
+        
+        <section id="cleansing">
+            <h2>The Art of Proper Cleansing</h2>
+            <p>Cleansing is the foundation of any good skincare routine. Doing it correctly can transform your skin.</p>
+            
+            <h3>Double Cleansing Method</h3>
+            <p>This two-step process ensures all impurities are thoroughly removed:</p>
+            <ol>
+                <li><strong>Oil-Based Cleanser:</strong> Breaks down makeup, sunscreen, and excess sebum</li>
+                <li><strong>Water-Based Cleanser:</strong> Removes sweat, dirt, and any remaining residue</li>
+            </ol>
+            
+            <h3>Choosing the Right Cleanser</h3>
+            <ul>
+                <li><strong>Dry Skin:</strong> Cream or milk cleansers with hydrating ingredients</li>
+                <li><strong>Oily Skin:</strong> Gel or foam cleansers that control excess oil</li>
+                <li><strong>Sensitive Skin:</strong> Fragrance-free, gentle formulas with soothing ingredients</li>
+            </ul>
+        </section>
+        
+        <section id="exfoliating">
+            <h2>Exfoliating for Radiant Skin</h2>
+            <p>Regular exfoliation is key to removing dead skin cells that make your complexion look dull.</p>
+            
+            <h3>Chemical vs Physical Exfoliation</h3>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>Chemical Exfoliants</h4>
+                    <p>Dissolve the bonds between dead skin cells using acids like:</p>
+                    <ul>
+                        <li><strong>AHAs:</strong> Glycolic, lactic, mandelic acid</li>
+                        <li><strong>BHAs:</strong> Salicylic acid (great for oily skin)</li>
+                        <li><strong>PHAs:</strong> Gentle option for sensitive skin</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>Physical Exfoliants</h4>
+                    <p>Manually slough off dead cells using:</p>
+                    <ul>
+                        <li>Gentle scrubs with round beads</li>
+                        <li>Exfoliating brushes or tools</li>
+                        <li>Face cloths or konjac sponges</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="moisturizing">
+            <h2>Moisturizing for Healthy Skin Barrier</h2>
+            <p>All skin types need proper moisturization to maintain a healthy skin barrier function.</p>
+            
+            <h3>Key Moisturizer Ingredients</h3>
+            <ul>
+                <li><strong>Hyaluronic Acid:</strong> Attracts and holds moisture in the skin</li>
+                <li><strong>Ceramides:</strong> Repair and strengthen the skin barrier</li>
+                <li><strong>Niacinamide:</strong> Improves barrier function and reduces redness</li>
+                <li><strong>Peptides:</strong> Support collagen production and skin repair</li>
+            </ul>
+            
+            <h3>Choosing the Right Moisturizer</h3>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>For Oily Skin</h4>
+                    <p>Lightweight, oil-free gels or lotions with mattifying ingredients</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>For Dry Skin</h4>
+                    <p>Rich creams with emollients and occlusives to lock in moisture</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>For Combination Skin</h4>
+                    <p>Balanced formulas that hydrate without feeling heavy</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="problems">
+            <h2>Common Skin Problems & Solutions</h2>
+            <p>Understanding your specific skin concerns is key to targeting your routine effectively.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>Dull, Tired-Looking Skin</h4>
+                    <p><strong>Causes:</strong> Dead skin cell buildup, dehydration, poor circulation</p>
+                    <p><strong>Solutions:</strong> Regular exfoliation, Vitamin C serum, facial massage</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>Uneven Skin Tone & Dark Spots</h4>
+                    <p><strong>Causes:</strong> Sun exposure, post-acne marks, hormonal changes</p>
+                    <p><strong>Solutions:</strong> Daily sunscreen, Vitamin C, Niacinamide, brightening agents</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>Dry, Flaky Skin</h4>
+                    <p><strong>Causes:</strong> Harsh weather, hot showers, stripping cleansers</p>
+                    <p><strong>Solutions:</strong> Gentle cleanser, hyaluronic acid, rich moisturizer</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="boosters">
+            <h2>Pro-Level Glow Boosters</h2>
+            <p>Take your skincare to the next level with these advanced techniques and treatments.</p>
+            
+            <h3>Weekly Treatments</h3>
+            <ul>
+                <li><strong>Hydrating Mask:</strong> With honey, hyaluronic acid, or aloe vera</li>
+                <li><strong>Clay Mask:</strong> To draw out impurities from oily areas</li>
+                <li><strong>Brightening Mask:</strong> With Vitamin C or turmeric for radiance</li>
+                <li><strong>Overnight Mask:</strong> Repair and hydrate while you sleep</li>
+            </ul>
+        </section>
+        
+        <section id="tools">
+            <h2>Skincare Tools & Technology</h2>
+            <p>Modern tools can enhance your skincare routine and deliver better results.</p>
+            
+            <h3>Popular Skincare Tools</h3>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>Gua Sha & Jade Rollers</h4>
+                    <p>Improve lymphatic drainage, reduce puffiness, and boost circulation</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>LED Light Therapy</h4>
+                    <p>Different wavelengths target acne, inflammation, and signs of aging</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h4>Microcurrent Devices</h4>
+                    <p>Tone facial muscles for a lifted, more contoured appearance</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>How long until I see results from a new skincare routine?</h3>
+            <p>Most skincare products take 4-8 weeks to show visible results, as this is the typical skin cell turnover cycle. Be patient and consistent!</p>
+            
+            <h3>Can I use Vitamin C and retinol together?</h3>
+            <p>Yes, but it's best to use Vitamin C in the morning and retinol at night to maximize benefits and minimize potential irritation.</p>
+            
+            <h3>Do I need different products for morning and night?</h3>
+            <p>While some products can be used both AM and PM, it's ideal to use antioxidant protection in the morning and repair-focused ingredients at night.</p>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Ready to Start Your Glowing Skin Journey?</h2>
+            <p>Remember, your skin cycle is approximately 28 days. Be patient and consistent with any new routine, allowing at least 6-8 weeks to see significant results.</p>
+            <a href="#" class="cta-button">Download Your Personalized Skincare Checklist</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Skincare Blog</a>
+                <a href="#" class="footer-link">Product Reviews</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <p>&copy; 2023 SkinGlowGuide.com - All Rights Reserved</p>
+            <p><em>Disclaimer: This content is for informational purposes only. Consult a dermatologist for personalized medical advice.</em></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navScroll = document.getElementById('navScroll');
+            const navArrowLeft = document.getElementById('navArrowLeft');
+            const navArrowRight = document.getElementById('navArrowRight');
+            const navItems = document.querySelectorAll('.nav-item');
+            const navProgress = document.getElementById('navProgress');
+            const sections = document.querySelectorAll('section');
+            
+            // Navigation scroll functionality
+            navArrowLeft.addEventListener('click', function() {
+                navScroll.scrollBy({
+                    left: -200,
+                    behavior: 'smooth'
+                });
+            });
+            
+            navArrowRight.addEventListener('click', function() {
+                navScroll.scrollBy({
+                    left: 200,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update active nav item based on scroll position
+            function updateActiveNav() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-section') === currentSection) {
+                        item.classList.add('active');
+                        
+                        // Scroll the nav to make active item visible
+                        const itemLeft = item.offsetLeft;
+                        const itemWidth = item.offsetWidth;
+                        const scrollLeft = navScroll.scrollLeft;
+                        const containerWidth = navScroll.clientWidth;
+                        
+                        if (itemLeft < scrollLeft) {
+                            navScroll.scrollTo({
+                                left: itemLeft - 10,
+                                behavior: 'smooth'
+                            });
+                        } else if (itemLeft + itemWidth > scrollLeft + containerWidth) {
+                            navScroll.scrollTo({
+                                left: itemLeft - containerWidth + itemWidth + 10,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+                
+                // Update progress bar
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollProgress = (window.scrollY / scrollHeight) * 100;
+                navProgress.style.width = `${scrollProgress}%`;
+            }
+            
+            // Smooth scroll to section when nav item is clicked
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update nav arrows visibility based on scroll position
+            function updateNavArrows() {
+                const scrollLeft = navScroll.scrollLeft;
+                const scrollWidth = navScroll.scrollWidth;
+                const clientWidth = navScroll.clientWidth;
+                
+                if (scrollLeft <= 10) {
+                    navArrowLeft.classList.add('hidden');
+                } else {
+                    navArrowLeft.classList.remove('hidden');
+                }
+                
+                if (scrollLeft + clientWidth >= scrollWidth - 10) {
+                    navArrowRight.classList.add('hidden');
+                } else {
+                    navArrowRight.classList.remove('hidden');
+                }
+            }
+            
+            // Event listeners
+            window.addEventListener('scroll', updateActiveNav);
+            navScroll.addEventListener('scroll', updateNavArrows);
+            window.addEventListener('resize', updateNavArrows);
+            
+            // Initialize
+            updateActiveNav();
+            updateNavArrows();
+        });
+    </script>
+</body>
+</html>
