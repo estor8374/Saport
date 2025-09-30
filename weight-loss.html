@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Fitness & Diet Plan | Get Fit & Healthy</title>
+    <meta name="description" content="Complete fitness and diet plan for weight loss. Exercise routines, meal plans, and healthy lifestyle tips.">
+    <meta name="keywords" content="fitness, diet plan, weight loss, exercise, workout, healthy eating">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-light: #C8E6C9;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --accent: #8BC34A;
+            --dark: #2E7D32;
+            --light: #F1F8E9;
+            --text: #333;
+            --gray: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Improved Sliding Navigation */
+        .category-nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding: 0.5rem 0;
+            gap: 0.5rem;
+        }
+        
+        .nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            padding: 0.8rem 1rem;
+            background: var(--light);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item span {
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover i, .nav-item.active i {
+            transform: scale(1.2);
+        }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .nav-arrow:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .nav-arrow.left {
+            left: 10px;
+        }
+        
+        .nav-arrow.right {
+            right: 10px;
+        }
+        
+        .nav-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Progress Indicator */
+        .nav-progress {
+            height: 3px;
+            background: var(--primary-light);
+            width: 100%;
+            position: relative;
+        }
+        
+        .nav-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            scroll-margin-top: 100px;
+        }
+        
+        h2 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        h3 {
+            color: var(--primary-dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .card {
+            background-color: var(--primary-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .exercise-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .exercise-card h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exercise-card h4 i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        .exercise-list {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .exercise-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exercise-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .exercise-list li i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .diet-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .warning-box {
+            background-color: #FFF3E0;
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .progress-container {
+            background: #E0E0E0;
+            border-radius: 10px;
+            height: 12px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+        
+        .sample-menu {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .sample-menu h4 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .workout-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .workout-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .workout-card h4 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .workout-card h4 i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 3rem;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-dark);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-link {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .exercise-grid, .diet-tips, .workout-plan {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-arrow {
+                display: none;
+            }
+            
+            .nav-item {
+                min-width: 120px;
+                padding: 0.7rem 0.8rem;
+            }
+            
+            .nav-item span {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Complete Fitness & Diet Plan</h1>
+            <p class="subtitle">Your comprehensive guide to weight loss with exercise routines, meal plans, and healthy lifestyle tips</p>
+        </div>
+    </header>
+    
+    <nav class="category-nav">
+        <div class="nav-progress">
+            <div class="nav-progress-bar" id="navProgress"></div>
+        </div>
+        <div class="container nav-container">
+            <button class="nav-arrow left" id="navArrowLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="nav-scroll" id="navScroll">
+                <a href="#diet-plan" class="nav-item active" data-section="diet-plan">
+                    <i class="fas fa-apple-alt"></i>
+                    <span>Diet Plan</span>
+                </a>
+                <a href="#cardio" class="nav-item" data-section="cardio">
+                    <i class="fas fa-running"></i>
+                    <span>Cardio</span>
+                </a>
+                <a href="#strength" class="nav-item" data-section="strength">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Strength</span>
+                </a>
+                <a href="#yoga" class="nav-item" data-section="yoga">
+                    <i class="fas fa-spa"></i>
+                    <span>Yoga</span>
+                </a>
+                <a href="#hiit" class="nav-item" data-section="hiit">
+                    <i class="fas fa-bolt"></i>
+                    <span>HIIT</span>
+                </a>
+                <a href="#home-workouts" class="nav-item" data-section="home-workouts">
+                    <i class="fas fa-home"></i>
+                    <span>Home Workouts</span>
+                </a>
+                <a href="#warmup" class="nav-item" data-section="warmup">
+                    <i class="fas fa-fire"></i>
+                    <span>Warm-up</span>
+                </a>
+                <a href="#cooldown" class="nav-item" data-section="cooldown">
+                    <i class="fas fa-wind"></i>
+                    <span>Cool Down</span>
+                </a>
+                <a href="#full-body" class="nav-item" data-section="full-body">
+                    <i class="fas fa-user"></i>
+                    <span>Full Body</span>
+                </a>
+            </div>
+            
+            <button class="nav-arrow right" id="navArrowRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="diet-plan">
+            <h2><i class="fas fa-utensils"></i> Weight Loss Diet Plan</h2>
+            <p>A balanced diet is crucial for effective weight loss. Follow this plan to create a sustainable calorie deficit while getting all essential nutrients.</p>
+            
+            <div class="card">
+                <h3>Basic Principles</h3>
+                <ul>
+                    <li><strong>Calorie Deficit:</strong> Consume 500-750 fewer calories than you burn daily</li>
+                    <li><strong>Macronutrient Balance:</strong> 40% carbs, 30% protein, 30% healthy fats</li>
+                    <li><strong>Meal Frequency:</strong> 3 main meals + 2 snacks to maintain metabolism</li>
+                    <li><strong>Hydration:</strong> Drink 2-3 liters of water daily</li>
+                </ul>
+            </div>
+            
+            <h3>Sample Daily Menu (1500 Calories)</h3>
+            <div class="sample-menu">
+                <h4>Breakfast (8:00 AM) - 350 calories</h4>
+                <ul>
+                    <li>1 cup oatmeal with 1/2 cup berries</li>
+                    <li>1 boiled egg</li>
+                    <li>Green tea or black coffee</li>
+                </ul>
+                
+                <h4>Morning Snack (11:00 AM) - 150 calories</h4>
+                <ul>
+                    <li>1 apple with 10 almonds</li>
+                </ul>
+                
+                <h4>Lunch (1:00 PM) - 450 calories</h4>
+                <ul>
+                    <li>Grilled chicken salad with mixed greens</li>
+                    <li>1/2 cup quinoa</li>
+                    <li>Light vinaigrette dressing</li>
+                </ul>
+                
+                <h4>Afternoon Snack (4:00 PM) - 200 calories</h4>
+                <ul>
+                    <li>Greek yogurt with 1/2 cup berries</li>
+                </ul>
+                
+                <h4>Dinner (7:00 PM) - 350 calories</h4>
+                <ul>
+                    <li>Baked salmon with steamed vegetables</li>
+                    <li>Small side salad</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="cardio">
+            <h2><i class="fas fa-running"></i> Cardio Exercises for Fat Burning</h2>
+            <p>Cardiovascular exercises increase heart rate and burn calories effectively. Aim for 150-300 minutes of moderate cardio per week.</p>
+            
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h4><i class="fas fa-walking"></i> Walking & Brisk Walking</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> 30-60 minutes daily</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 200-400 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Low impact, suitable for beginners</li>
+                        <li><i class="fas fa-check-circle"></i> Can be done anywhere, no equipment</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-bicycle"></i> Cycling</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> Stationary or outdoor cycling</li>
+                        <li><i class="fas fa-check-circle"></i> 30-45 minutes, 3-5 times/week</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 400-600 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Strengthens legs and glutes</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-swimmer"></i> Swimming</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> Full-body, low-impact workout</li>
+                        <li><i class="fas fa-check-circle"></i> 30-45 minutes, 3-4 times/week</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 400-700 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Excellent for joint health</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-running"></i> Running & Jogging</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> High-calorie burning exercise</li>
+                        <li><i class="fas fa-check-circle"></i> 20-30 minutes, 3-4 times/week</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 600-800 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Builds strong bones and muscles</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-dumbbell"></i> Jump Rope</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> Highly efficient cardio workout</li>
+                        <li><i class="fas fa-check-circle"></i> 15-20 minutes daily</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 700-1000 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Improves coordination and agility</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-mountain"></i> Stair Climbing</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-check-circle"></i> Uses stairs or stair machine</li>
+                        <li><i class="fas fa-check-circle"></i> 20-30 minutes, 3-4 times/week</li>
+                        <li><i class="fas fa-check-circle"></i> Burns 500-700 calories/hour</li>
+                        <li><i class="fas fa-check-circle"></i> Strengthens legs and glutes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="strength">
+            <h2><i class="fas fa-dumbbell"></i> Strength Training Exercises</h2>
+            <p>Building muscle increases metabolism and helps burn more calories at rest. Aim for 2-3 strength sessions per week.</p>
+            
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h4><i class="fas fa-weight-hanging"></i> Squats</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 3 sets of 12-15 repetitions</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets glutes, quads, hamstrings</li>
+                        <li><i class="fas fa-dumbbell"></i> Can be done with or without weights</li>
+                        <li><i class="fas fa-dumbbell"></i> Variations: goblet, sumo, jump squats</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-hands"></i> Push-ups</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 3 sets of 10-15 repetitions</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets chest, shoulders, triceps</li>
+                        <li><i class="fas fa-dumbbell"></i> Modifications: knee push-ups, wall push-ups</li>
+                        <li><i class="fas fa-dumbbell"></i> Builds upper body strength</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-undo-alt"></i> Lunges</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 3 sets of 10-12 reps per leg</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets quads, glutes, hamstrings</li>
+                        <li><i class="fas fa-dumbbell"></i> Variations: walking, reverse, lateral lunges</li>
+                        <li><i class="fas fa-dumbbell"></i> Improves balance and coordination</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-arrow-up"></i> Plank</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> Hold for 30-60 seconds, 3 sets</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets core, shoulders, back</li>
+                        <li><i class="fas fa-dumbbell"></i> Variations: side plank, forearm plank</li>
+                        <li><i class="fas fa-dumbbell"></i> Builds core stability and endurance</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-dumbbell"></i> Dumbbell Rows</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 3 sets of 10-12 reps per arm</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets back, biceps, shoulders</li>
+                        <li><i class="fas fa-dumbbell"></i> Use dumbbell or resistance band</li>
+                        <li><i class="fas fa-dumbbell"></i> Improves posture and back strength</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-arrow-circle-up"></i> Glute Bridges</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 3 sets of 15-20 repetitions</li>
+                        <li><i class="fas fa-dumbbell"></i> Targets glutes, hamstrings, core</li>
+                        <li><i class="fas fa-dumbbell"></i> Can be done with or without weights</li>
+                        <li><i class="fas fa-dumbbell"></i> Activates and strengthens glutes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="yoga">
+            <h2><i class="fas fa-spa"></i> Yoga for Weight Loss & Flexibility</h2>
+            <p>Yoga combines physical postures, breathing exercises, and meditation to reduce stress and improve flexibility while burning calories.</p>
+            
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h4><i class="fas fa-sun"></i> Sun Salutations (Surya Namaskar)</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-leaf"></i> 5-12 rounds daily</li>
+                        <li><i class="fas fa-leaf"></i> Full-body sequence of 12 poses</li>
+                        <li><i class="fas fa-leaf"></i> Improves flexibility and strength</li>
+                        <li><i class="fas fa-leaf"></i> Boosts metabolism and circulation</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-tree"></i> Warrior Poses</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-leaf"></i> Warrior I, II, III variations</li>
+                        <li><i class="fas fa-leaf"></i> Hold each pose for 30-60 seconds</li>
+                        <li><i class="fas fa-leaf"></i> Strengthens legs, core, and arms</li>
+                        <li><i class="fas fa-leaf"></i> Improves balance and concentration</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-chair"></i> Chair Pose (Utkatasana)</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-leaf"></i> Hold for 30-60 seconds, 3-5 rounds</li>
+                        <li><i class="fas fa-leaf"></i> Strengthens thighs, glutes, and core</li>
+                        <li><i class="fas fa-leaf"></i> Increases heart rate for calorie burn</li>
+                        <li><i class="fas fa-leaf"></i> Improves balance and stability</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-boat"></i> Boat Pose (Navasana)</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-leaf"></i> Hold for 15-30 seconds, 3-5 rounds</li>
+                        <li><i class="fas fa-leaf"></i> Targets abdominal muscles</li>
+                        <li><i class="fas fa-leaf"></i> Strengthens core and hip flexors</li>
+                        <li><i class="fas fa-leaf"></i> Improves digestion and balance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hiit">
+            <h2><i class="fas fa-bolt"></i> HIIT Workouts for Maximum Fat Burn</h2>
+            <p>High-Intensity Interval Training alternates between intense bursts of activity and fixed periods of less-intense activity or rest.</p>
+            
+            <div class="workout-plan">
+                <div class="workout-card">
+                    <h4><i class="fas fa-stopwatch"></i> 20-Minute HIIT Routine</h4>
+                    <ul>
+                        <li><strong>Warm-up:</strong> 3 minutes light jogging or jumping jacks</li>
+                        <li><strong>Circuit (Repeat 4 times):</strong></li>
+                        <li>• 45 seconds high knees</li>
+                        <li>• 15 seconds rest</li>
+                        <li>• 45 seconds burpees</li>
+                        <li>• 15 seconds rest</li>
+                        <li>• 45 seconds mountain climbers</li>
+                        <li>• 15 seconds rest</li>
+                        <li>• 45 seconds jump squats</li>
+                        <li>• 15 seconds rest</li>
+                        <li><strong>Cool down:</strong> 3 minutes stretching</li>
+                    </ul>
+                </div>
+                
+                <div class="workout-card">
+                    <h4><i class="fas fa-fire"></i> Tabata Protocol (4 minutes)</h4>
+                    <ul>
+                        <li>20 seconds of maximum effort exercise</li>
+                        <li>10 seconds of rest</li>
+                        <li>Repeat 8 times (total 4 minutes)</li>
+                        <li><strong>Exercises to try:</strong></li>
+                        <li>• Squat jumps</li>
+                        <li>• Push-ups</li>
+                        <li>• Sit-ups</li>
+                        <li>• Burpees</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Benefits of HIIT</h3>
+            <div class="diet-tips">
+                <div class="tip-card">
+                    <i class="fas fa-burn"></i>
+                    <h4>Afterburn Effect</h4>
+                    <p>Your body continues to burn calories for hours after workout</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Time Efficient</h4>
+                    <p>Shorter workouts with similar or better results than steady-state cardio</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Cardiovascular Health</h4>
+                    <p>Improves heart health and increases VO2 max</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h4>Metabolism Boost</h4>
+                    <p>Increases metabolic rate and fat burning</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="home-workouts">
+            <h2><i class="fas fa-home"></i> Effective Home Workouts</h2>
+            <p>You don't need a gym to get fit. These exercises can be done at home with minimal or no equipment.</p>
+            
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h4><i class="fas fa-tv"></i> Bodyweight Circuit</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> 10 push-ups</li>
+                        <li><i class="fas fa-dumbbell"></i> 15 bodyweight squats</li>
+                        <li><i class="fas fa-dumbbell"></i> 10 walking lunges per leg</li>
+                        <li><i class="fas fa-dumbbell"></i> 15 tricep dips (using chair)</li>
+                        <li><i class="fas fa-dumbbell"></i> 30-second plank</li>
+                        <li><i class="fas fa-dumbbell"></i> 20 jumping jacks</li>
+                        <li><i class="fas fa-dumbbell"></i> Repeat 3-5 rounds</li>
+                    </ul>
+                </div>
+                
+                <div class="exercise-card">
+                    <h4><i class="fas fa-wine-bottle"></i> Household Item Workouts</h4>
+                    <ul class="exercise-list">
+                        <li><i class="fas fa-dumbbell"></i> Water bottle curls (biceps)</li>
+                        <li><i class="fas fa-dumbbell"></i> Backpack squats (add weight)</li>
+                        <li><i class="fas fa-dumbbell"></i> Chair tricep dips</li>
+                        <li><i class="fas fa-dumbbell"></i> Towel rows (back)</li>
+                        <li><i class="fas fa-dumbbell"></i> Stair step-ups</li>
+                        <li><i class="fas fa-dumbbell"></i> Canned food shoulder presses</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Start Your Fitness Journey Today</h2>
+            <p>Combine these exercises with the diet plan for optimal results. Remember that consistency is more important than perfection.</p>
+            <a href="#" class="cta-button">Download Complete 4-Week Fitness Plan</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link">Exercise Library</a>
+                <a href="#" class="footer-link">Meal Plans</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+            <p>&copy; 2023 FitLife Fitness & Nutrition. All Rights Reserved.</p>
+            <p><em>Disclaimer: Consult a healthcare professional before starting any new diet or exercise program.</em></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navScroll = document.getElementById('navScroll');
+            const navArrowLeft = document.getElementById('navArrowLeft');
+            const navArrowRight = document.getElementById('navArrowRight');
+            const navItems = document.querySelectorAll('.nav-item');
+            const navProgress = document.getElementById('navProgress');
+            const sections = document.querySelectorAll('section');
+            
+            // Navigation scroll functionality
+            navArrowLeft.addEventListener('click', function() {
+                navScroll.scrollBy({
+                    left: -200,
+                    behavior: 'smooth'
+                });
+            });
+            
+            navArrowRight.addEventListener('click', function() {
+                navScroll.scrollBy({
+                    left: 200,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update active nav item based on scroll position
+            function updateActiveNav() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-section') === currentSection) {
+                        item.classList.add('active');
+                        
+                        // Scroll the nav to make active item visible
+                        const itemLeft = item.offsetLeft;
+                        const itemWidth = item.offsetWidth;
+                        const scrollLeft = navScroll.scrollLeft;
+                        const containerWidth = navScroll.clientWidth;
+                        
+                        if (itemLeft < scrollLeft) {
+                            navScroll.scrollTo({
+                                left: itemLeft - 10,
+                                behavior: 'smooth'
+                            });
+                        } else if (itemLeft + itemWidth > scrollLeft + containerWidth) {
+                            navScroll.scrollTo({
+                                left: itemLeft - containerWidth + itemWidth + 10,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+                
+                // Update progress bar
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollProgress = (window.scrollY / scrollHeight) * 100;
+                navProgress.style.width = `${scrollProgress}%`;
+            }
+            
+            // Smooth scroll to section when nav item is clicked
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update nav arrows visibility based on scroll position
+            function updateNavArrows() {
+                const scrollLeft = navScroll.scrollLeft;
+                const scrollWidth = navScroll.scrollWidth;
+                const clientWidth = navScroll.clientWidth;
+                
+                if (scrollLeft <= 10) {
+                    navArrowLeft.classList.add('hidden');
+                } else {
+                    navArrowLeft.classList.remove('hidden');
+                }
+                
+                if (scrollLeft + clientWidth >= scrollWidth - 10) {
+                    navArrowRight.classList.add('hidden');
+                } else {
+                    navArrowRight.classList.remove('hidden');
+                }
+            }
+            
+            // Event listeners
+            window.addEventListener('scroll', updateActiveNav);
+            navScroll.addEventListener('scroll', updateNavArrows);
+            window.addEventListener('resize', updateNavArrows);
+            
+            // Initialize
+            updateActiveNav();
+            updateNavArrows();
+        });
+    </script>
+</body>
+</html>
